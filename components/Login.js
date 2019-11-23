@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, FlatList, TouchableOpacity, Button, StyleSheet } from 'react-native';
+import { View, Text, FlatList, TouchableOpacity, Button, StyleSheet, Image } from 'react-native';
 import { Link } from 'react-router-native';
 
 const Login = props => {
@@ -11,6 +11,10 @@ const Login = props => {
   };
   return (
     <View style={styles.container}>
+
+      <Image source = {require('./Logo.png')}
+      style ={{width:50, height:50}}
+      />
 
       <Button title="Log In" onPress={() => handlePress()}>
         Log In
