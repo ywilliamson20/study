@@ -16,20 +16,21 @@ const HomeScreen = props => {
   const ProfilePress = pokemon=>{
     props.history.push('/Profile');
   };
-  
+
   return (
     <View>
-    <Button title="Log out" onPress={() => handlePress()}>
-      Log out
-    </Button>
-        <Button title="Preference" onPress={() => PrePress()}>
-          Preference
+
+        <Button title="Search" onPress={() => PrePress()}>
+          Search
         </Button>
-        <Button title="ChatRoom" onPress={() => ChaPress()}>
-          ChatRoom
+        <Button title="Chat" onPress={() => ChaPress()}>
+          Chat
         </Button>
         <Button title="Profile" onPress={() => ProfilePress()}>
         Profile
+        </Button>
+        <Button title="Log out" onPress={() => handlePress()}>
+          Log out
         </Button>
     </View>
   );

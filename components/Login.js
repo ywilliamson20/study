@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, FlatList, TouchableOpacity, Button } from 'react-native';
+import { View, Text, FlatList, TouchableOpacity, Button, StyleSheet } from 'react-native';
 import { Link } from 'react-router-native';
 
 const Login = props => {
@@ -10,7 +10,7 @@ const Login = props => {
     props.history.push('/Create');
   };
   return (
-    <View>
+    <View style={styles.container}>
 
       <Button title="Log In" onPress={() => handlePress()}>
         Log In
@@ -23,5 +23,16 @@ const Login = props => {
 
     </View>
   );
+
 };
+
+
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      alignItems: 'center',
+      justifyContent: 'flex-start',
+      marginBottom: 50,
+    },
+  });
 export default Login;
