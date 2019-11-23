@@ -1,18 +1,22 @@
-import {createAppContainer} from 'react-navigation';
-import {createStackNavigator} from 'react-navigation-stack';
-import React, { Component } from 'react'
+import React from 'react';
+import { View, Text, FlatList, TouchableOpacity, Button } from 'react-native';
+import { Link } from 'react-router-native';
 
-class ProfileScreen extends React.Component {
-  static navigationOptions = {
-    title: 'Welcome',
+const Preference = props => {
+  const handlePress = pokemon=>{
+    props.history.push('/Home');
   };
-  render() {
-    const {navigate} = this.props.navigation;
-    return (
-      <Button
-        title="Go to Jane's profile"
-        onPress={() => navigate('Profile', {name: 'Jane'})}
-      />
-    );
-  }
-}
+
+  return (
+    <View>
+
+      <Button title="Go Back" onPress={() => handlePress()}>
+        Go Back
+      </Button>
+
+      <Text> Your current Profile</Text>
+
+    </View>
+  );
+};
+export default Preference;

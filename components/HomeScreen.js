@@ -1,18 +1,37 @@
-import {createAppContainer} from 'react-navigation';
-import {createStackNavigator} from 'react-navigation-stack';
-import React, { Component } from 'react'
+import React from 'react';
+import { View, Text, FlatList, TouchableOpacity, Button } from 'react-native';
 
-class HomeScreen extends React.Component {
-  static navigationOptions = {
-    title: 'Welcome',
+
+const HomeScreen = props => {
+
+  const handlePress = pokemon => {
+    props.history.push('/');
   };
-  render() {
-    const {navigate} = this.props.navigation;
-    return (
-      <Button
-        title="Go to Jane's profile"
-        onPress={() => navigate('Profile', {name: 'Jane'})}
-      />
-    );
-  }
-}
+  const ChaPress = pokemon=>{
+    props.history.push('/ChatRoom');
+  };
+  const PrePress = pokemon=>{
+    props.history.push('/Prefer');
+  };
+  const ProfilePress = pokemon=>{
+    props.history.push('/Profile');
+  };
+  
+  return (
+    <View>
+    <Button title="Log out" onPress={() => handlePress()}>
+      Log out
+    </Button>
+        <Button title="Preference" onPress={() => PrePress()}>
+          Preference
+        </Button>
+        <Button title="ChatRoom" onPress={() => ChaPress()}>
+          ChatRoom
+        </Button>
+        <Button title="Profile" onPress={() => ProfilePress()}>
+        Profile
+        </Button>
+    </View>
+  );
+};
+export default HomeScreen;
