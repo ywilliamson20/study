@@ -22,7 +22,7 @@ const HomeScreen = props => {
       <Image source = {mainLogo}
               style ={{width:100, height:100}}
               />
-      <Text> Study Buddy</Text>
+      <Text style = {{fontSize: 30, color: '#373dfa'}}> Study Buddy</Text>
         <Button title="Search" onPress={() => PrePress()}>
           Search
         </Button>
@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    marginBottom: 150,
+    marginBottom: 50,
     padding: 10,
     backgroundColor: '#6ED4C8'
   },

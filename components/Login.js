@@ -17,11 +17,13 @@ const Login = props => {
       style ={{width:100, height:100}}
       />
 
+      <Text style = {{fontSize: 30, color: '#373dfa'}}> Study Buddy </Text>
+
       <Button title="Log In" onPress={() => handlePress()}>
         Log In
       </Button>
 
-      <Text> Login</Text>
+      {/* <Text> Login</Text> */}
       <Button title="New User" onPress={() => CreatePress()}>
         New User
       </Button>
@@ -35,8 +37,8 @@ const Login = props => {
     container: {
       flex: 1,
       alignItems: 'center',
-      justifyContent: 'flex-start',
-      marginBottom: 50,
+      justifyContent: 'center',
+      marginBottom: 10,
     },
   });
 export default Login;
