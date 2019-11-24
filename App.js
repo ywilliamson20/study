@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Image } from 'react-native';
 import { Router, Switch, Route } from './src/routing.native';
 import HomeScreen from './components/HomeScreen';
 import Login from './components/Login';
@@ -11,10 +11,8 @@ import Preference from './components/Preference';
 export default class App extends Component {
   render(){
 
-
   return (
      <View style={styles.container}>
-      <Text>Study Buddy</Text>
         <Router>
             <Switch>
               <Route exact path="/" render={props => <Login {...props} />} />
@@ -35,7 +33,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    marginBottom: 50,
+    marginBottom: 150,
     padding: 10,
     backgroundColor: '#6ED4C8'
   },

@@ -1,6 +1,6 @@
 import React from 'react';
-import { View, Text, FlatList, TouchableOpacity, Button } from 'react-native';
-
+import { View, Text, FlatList, TouchableOpacity, Button, Image, StyleSheet } from 'react-native';
+import mainLogo from './Logo.png';
 
 const HomeScreen = props => {
 
@@ -18,8 +18,11 @@ const HomeScreen = props => {
   };
 
   return (
-    <View>
-
+    <View style ={styles.container}>
+      <Image source = {mainLogo}
+              style ={{width:100, height:100}}
+              />
+      <Text> Study Buddy</Text>
         <Button title="Search" onPress={() => PrePress()}>
           Search
         </Button>
@@ -35,4 +38,16 @@ const HomeScreen = props => {
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 150,
+    padding: 10,
+    backgroundColor: '#6ED4C8'
+  },
+});
+
 export default HomeScreen;
