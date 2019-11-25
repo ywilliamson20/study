@@ -18,16 +18,24 @@ const Login = props => {
       />
 
       <Text style = {{fontSize: 30, color: '#373dfa'}}> Study Buddy </Text>
+        <View style={{
+          height: 50,
 
+        }}>
       <Button title="Log In" onPress={() => handlePress()}>
         Log In
       </Button>
+      </View>
 
       {/* <Text> Login</Text> */}
+      <View style={{
+        height: 50,
+
+      }}>
       <Button title="New User" onPress={() => CreatePress()}>
         New User
       </Button>
-
+    </View>
     </View>
   );
 
