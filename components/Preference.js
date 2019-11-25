@@ -39,8 +39,8 @@ const userList2 = {
 export default class HomeScreen extends Component {
 
         state = {
-          color: 'skyblue',
-          color2: 'skyblue',
+          color: 'navy',
+          color2: 'navy',
           changed: false,
           changed2: false
       }
@@ -69,24 +69,24 @@ handlePress(){
   };
  ColorPress () {
    if(this.state.changed){
-       this.setState({  color: 'skyblue'})
+       this.setState({  color: 'navy'})
    }else if (!this.state.changed && !this.state.changed2 ){
-    this.setState({  color: 'navy'})
+    this.setState({  color: 'green'})
   }
 
   };
   ColorPress2 () {
     if(this.state.changed2){
-        this.setState({  color2: 'skyblue'})
+        this.setState({  color2: 'navy'})
     }else if (!this.state.changed2){
-     this.setState({  color2: 'navy'})
+     this.setState({  color2: 'green'})
     }
    };
   render(){
   return (
     <View>
     <View style={{
-      height: 120,
+      height: 10,
     }}>
 
 

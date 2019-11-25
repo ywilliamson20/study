@@ -18,7 +18,7 @@ const userList = {
 export default class Start extends Component {
 
         state = {
-          color: 'skyblue',
+          color: 'navy',
 
               modalVisible: false,
 
@@ -58,10 +58,10 @@ handlePress (){
           visible={this.state.modalVisible}
           onRequestClose={() => {
           }}>
-          <View style={{justifyContent: 'center', backgroundColor: 'skyblue', width: 380, height: 300}}>
+          <View style={{justifyContent: 'center', backgroundColor: 'navy', width: 380, height: 300}}>
 
             <View>
-              <Text style={{ alignItems: 'center', fontSize: 60, fontWeight: 'bold',  color: '#373dfa'}}>Study Session Made! </Text>
+              <Text style={{ alignItems: 'center', fontSize: 60, fontWeight: 'bold',  color: 'white'}}>Study Session Made! </Text>
 
               <Button
                 title="EXIT"
