@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, FlatList, TouchableOpacity, Button } from 'react-native';
 import { Link } from 'react-router-native';
-import { CheckBox, List, ListItem } from 'react-native-elements';
+import { CheckBox, List, ListItem, Icon } from 'react-native-elements';
 
 
 const listItems = [
@@ -45,6 +45,9 @@ const Preference = props => {
     <View style={{
       height: 60,
     }}>
+        <Icon
+          name='rowing' />
+
         <Text style={{ padding: 20, fontSize: 30, fontWeight: 'bold',  color: '#373dfa'}}> Add your Preference</Text>
 
       </View>

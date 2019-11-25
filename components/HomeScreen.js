@@ -1,31 +1,31 @@
-import React from 'react';
-import { View, Text, FlatList, TouchableOpacity, Button, Image, StyleSheet, Modal, TouchableHighlight} from 'react-native';
+import React, { Component } from 'react';
+import { View, Text, FlatList, TouchableOpacity, Button, Image, StyleSheet, Modal, TouchableHighlight, Alert} from 'react-native';
 import mainLogo from './Logo.png';
 
-const HomeScreen = props => {
+const handlePress = pokemon => {
+  this.props.history.push('/');
+};
+const ChaPress = pokemon=>{
+  this.props.history.push('/ChatRoom');
+};
+const PrePress = pokemon=>{
+this.props.history.push('/Prefer');
+};
+const ProfilePress = pokemon=>{
+this.props.history.push('/Profile');
+};
 
-  const handlePress = pokemon => {
-    props.history.push('/');
-  };
-  const ChaPress = pokemon=>{
-    props.history.push('/ChatRoom');
-  };
-  const PrePress = pokemon=>{
-    props.history.push('/Prefer');
-  };
-  const ProfilePress = pokemon=>{
-    props.history.push('/Profile');
-  };
-
+export default class HomeScreen extends Component {
   state = {
-    modalVisible: false,
-  };
+      modalVisible: false
+    };
 
-setModalVisible=(visible)=> {
-    this.state.modalVisible({modalVisible: visible});
+
+setModalVisible (visible){
+  this.setState({modalVisible:visible})
   }
 
-
+render(){
   return (
     <View style={{marginTop: 22}}>
       <Modal
@@ -33,28 +33,30 @@ setModalVisible=(visible)=> {
         transparent={false}
         visible={this.state.modalVisible}
         onRequestClose={() => {
-          Alert.alert('Modal has been closed.');
+
         }}>
         <View style={{marginTop: 22}}>
           <View>
             <Text>Hello World!</Text>
 
-            <TouchableHighlight
+            <Button
+              title="Go Back"
               onPress={() => {
                 this.setModalVisible(!this.state.modalVisible);
               }}>
-              <Text>Hide Modal</Text>
-            </TouchableHighlight>
+              Go Back
+            </Button>
           </View>
         </View>
       </Modal>
 
-      <TouchableHighlight
+      <Button
+        title="Show Modal"
         onPress={() => {
-          this.setModalVisible(true);
+          this.setModalVisible(!this.state.modalVisible);
         }}>
-        <Text>Show Modal</Text>
-      </TouchableHighlight>
+        Show Modal
+      </Button>
 
 
     <View style ={styles.container}>
@@ -98,6 +100,7 @@ setModalVisible=(visible)=> {
     </View>
       </View>
   );
+}
 };
 
 const styles = StyleSheet.create({
@@ -110,5 +113,3 @@ const styles = StyleSheet.create({
     backgroundColor: '#6ED4C8'
   },
 });
-
-export default HomeScreen;
