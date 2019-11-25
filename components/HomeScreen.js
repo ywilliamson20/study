@@ -2,24 +2,24 @@ import React, { Component } from 'react';
 import { View, Text, FlatList, TouchableOpacity, Button, Image, StyleSheet, Modal, TouchableHighlight, Alert} from 'react-native';
 import mainLogo from './Logo.png';
 
-const handlePress = pokemon => {
-  this.props.history.push('/');
-};
-const ChaPress = pokemon=>{
-  this.props.history.push('/ChatRoom');
-};
-const PrePress = pokemon=>{
-this.props.history.push('/Prefer');
-};
-const ProfilePress = pokemon=>{
-this.props.history.push('/Profile');
-};
+
 
 export default class HomeScreen extends Component {
   state = {
       modalVisible: false
     };
-
+     handlePress () {
+      this.props.history.push('/');
+    };
+   ChaPress() {
+      this.props.history.push('/ChatRoom');
+    };
+     PrePress () {
+    this.props.history.push('/Prefer');
+    };
+     ProfilePress () {
+    this.props.history.push('/Profile');
+    };
 
 setModalVisible (visible){
   this.setState({modalVisible:visible})
@@ -68,7 +68,7 @@ render(){
           height: 50,
 
         }}>
-        <Button title="Search" onPress={() => PrePress()}>
+        <Button title="Search" onPress={() => this.PrePress()}>
           Search
         </Button>
       </View>
@@ -76,7 +76,7 @@ render(){
         height: 50,
 
       }}>
-        <Button title="Chat" onPress={() => ChaPress()}>
+        <Button title="Chat" onPress={() => this.ChaPress()}>
           Chat
         </Button>
       </View>
@@ -85,7 +85,7 @@ render(){
         height: 50,
 
       }}>
-        <Button title="Profile" onPress={() => ProfilePress()}>
+        <Button title="Profile" onPress={() => this.ProfilePress()}>
         Profile
         </Button>
       </View>
@@ -93,7 +93,7 @@ render(){
         height: 50,
 
       }}>
-        <Button title="Log out" onPress={() => handlePress()}>
+        <Button title="Log out" onPress={() => this.handlePress()}>
           Log out
         </Button>
       </View>
