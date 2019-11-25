@@ -2,9 +2,9 @@ import React from 'react';
 import { View, Text, FlatList, TouchableOpacity, Button } from 'react-native';
 
 
-const HomeScreen = props => {
+const Create = props => {
   const handlePress = pokemon => {
-    props.history.push('/Home');
+    props.history.push('/UniSelect');
   };
 
   return (
@@ -18,4 +18,4 @@ const HomeScreen = props => {
     </View>
   );
 };
-export default HomeScreen;
+export default Create;

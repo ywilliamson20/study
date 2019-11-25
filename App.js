@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, Image } from 'react-native';
 import { Router, Switch, Route } from './src/routing.native';
 import HomeScreen from './components/HomeScreen';
 import Login from './components/Login';
+import UniSelect from './components/UniSelect';
 import Create from './components/Create';
 import ChatRoom from './components/ChatRoom';
 import ProfileScreen from './components/ProfileScreen';
@@ -18,6 +19,7 @@ export default class App extends Component {
               <Route exact path="/" render={props => <Login {...props} />} />
               <Route path="/Home" render={props => <HomeScreen {...props} />} />
               <Route path="/Create" render={props => <Create {...props} />} />
+              <Route path="/UniSelect" render={props => <UniSelect {...props} />} />
               <Route path="/Prefer" render={props => <Preference {...props} />} />
               <Route path="/ChatRoom" render={props => <ChatRoom {...props} />} />
               <Route path="/Profile" render={props => <ProfileScreen {...props} />} />
