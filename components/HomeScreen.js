@@ -6,7 +6,8 @@ import mainLogo from './Logo.png';
 
 export default class HomeScreen extends Component {
   state = {
-      modalVisible: false
+      modalVisible: false,
+
     };
      handlePress () {
       this.props.history.push('/');
@@ -21,6 +22,7 @@ export default class HomeScreen extends Component {
     this.props.history.push('/Profile');
     };
 
+
 setModalVisible (visible){
   this.setState({modalVisible:visible})
   }
@@ -28,6 +30,7 @@ setModalVisible (visible){
 render(){
   return (
     <View style={{marginTop: 22}}>
+
       <Modal
         animationType="slide"
         transparent={false}
@@ -49,7 +52,7 @@ render(){
           </View>
         </View>
       </Modal>
-
+ {this.state.picked ? (
       <Button
         title="Show Modal"
         onPress={() => {
@@ -57,7 +60,7 @@ render(){
         }}>
         Show Modal
       </Button>
-
+  ) : null}
 
     <View style ={styles.container}>
       <Image source = {mainLogo}

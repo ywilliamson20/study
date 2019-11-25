@@ -14,7 +14,9 @@ import Preference from './components/Preference';
 
 
 export default class App extends Component {
-
+  state = {
+      picked: false
+    };
 
   render(){
 
@@ -23,14 +25,14 @@ export default class App extends Component {
         <Router>
             <Switch>
               <Route exact path="/" render={props => <Login {...props} />} />
-              <Route path="/Home" render={props => <HomeScreen {...props} />} />
+              <Route path="/Home" render={props => <HomeScreen {...props} />} picked={this.state.picked}/>
               <Route path="/Create" render={props => <Create {...props} />} />
               <Route path="/Prefer" render={props => <Preference {...props} />} />
               <Route path="/ChatRoom" render={props => <ChatRoom {...props} />} />
               <Route path="/Profile" render={props => <ProfileScreen {...props} />} />
               <Route path="/Signup" render={props => <SignUp {...props} />} />
               <Route path="/Break" render={props => <Break {...props} />} />\
-              <Route path="/Start" render={props => <Start {...props} />} />
+              <Route path="/Start" render={props => <Start {...props} picked={this.state.picked} />} />
             </Switch>
           </Router>
     </View>

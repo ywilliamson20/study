@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { View, Text, FlatList, TouchableOpacity, Button } from 'react-native';
 import { Link } from 'react-router-native';
 import { CheckBox, List, ListItem, Icon } from 'react-native-elements';
-
+import CustomMultiPicker from "react-native-multiple-select-list";
 
 const listItems = [
           'Marston',
@@ -20,63 +20,112 @@ const classItems = [
          'DIG3020',
         'CEN3031',
 ];
+const userList = {
+  "123":"CEN4722",
+  "124":"CEN4721",
+  "125":"DIG3020",
+  "126":"CEN3031"
+}
+const userList2 = {
+  "123":"Marston",
+  "124":"West",
+  "125":"Newell",
+  "126":"Fine Arts",
+  "127":"Turlington",
+  "128":"Little Hall",
+  "129":"Reitz Union"
+}
 
-const Preference = props => {
+export default class HomeScreen extends Component {
 
         state = {
-          color: 'pink',
-
-
+          color: 'skyblue',
+          color2: 'skyblue',
+          changed: false,
+          changed2: false
       }
 
-  const handlePress = pokemon=>{
-    props.history.push('/Home');
+handlePress(){
+    this.props.history.push('/Home');
 
 
   };
 
-  const FinPress = pokemon=>{
-    props.history.push('/Start');
+  FinPress (){
+      this.props.history.push('/Start');
 
 
   };
+  changed (change){
+      this.setState({ changed: change })
+
+
+  };
+
+  changed2 (change){
+      this.setState({ changed2: change })
+
+
+  };
+ ColorPress () {
+   if(this.state.changed){
+       this.setState({  color: 'skyblue'})
+   }else if (!this.state.changed && !this.state.changed2 ){
+    this.setState({  color: 'navy'})
+  }
+
+  };
+  ColorPress2 () {
+    if(this.state.changed2){
+        this.setState({  color2: 'skyblue'})
+    }else if (!this.state.changed2){
+     this.setState({  color2: 'navy'})
+    }
+   };
+  render(){
   return (
     <View>
     <View style={{
-      height: 60,
+      height: 120,
     }}>
-        <Icon
-          name='rowing' />
 
-        <Text style={{ padding: 20, fontSize: 30, fontWeight: 'bold',  color: '#373dfa'}}> Add your Preference</Text>
+
+        <Text style={{ padding: 20, fontSize: 25, fontWeight: 'bold',  color: '#373dfa'}}> Add your Preference</Text>
 
       </View>
       <View style={{
         justifyContent: 'flex-end',
         alignItems: 'center',
-        height: 50
+        height: 80
       }}>
       <Text> Pick Class</Text>
       </View>
           <View style={{
             height: 100,
           }}>
-          <FlatList
-            style={{
-              backgroundColor:'white',
-            }}
-                data={classItems}
-                renderItem={({ item }) => (
-                  <Text style={{padding: 20, fontSize: 15 }}>{item}</Text>
-                )}
-                  keyExtractor={(item, index) => index.toString()}
-              />
-
+          <CustomMultiPicker
+            options={userList}
+            multiple={true} //
+            returnValue={"label"} // label or value
+            callback={(res)=>{ console.log(res) }} // callback, array of selected items
+            rowBackgroundColor={"#eee"}
+            rowHeight={40}
+            rowRadius={5}
+            searchIconName="ios-add"
+            searchIconColor="red"
+            searchIconSize={30}
+            iconColor={"#00a2dd"}
+            iconSize={30}
+            selectedIconName={"ios-checkmark-circle-outline"}
+            unselectedIconName={"ios-add"}
+            scrollViewHeight={130}
+            selected={[]} // list of options which are selected by default
+          />
           </View>
 
 
           <View style={{
-            height: 40,
+            height: 80,
               justifyContent: 'flex-end',
               alignItems: 'center'
           }}>
@@ -86,33 +135,43 @@ const Preference = props => {
       height: 100,
 
     }}>
-    <FlatList
-      style={{
-        backgroundColor:'white',
-
-      }}
-          data={listItems}
-          renderItem={({ item }) => (
-            <Text style={{ padding: 20, fontSize: 15,  }}>{item}</Text>
-          )}
-            keyExtractor={(item, index) => index.toString()}
-        />
+    <CustomMultiPicker
+      options={userList2}
+      multiple={true} //
+      returnValue={"label"} // label or value
+      callback={(res)=>{ console.log(res) }} // callback, array of selected items
+      rowBackgroundColor={"#eee"}
+      rowHeight={40}
+      rowRadius={5}
+      searchIconName="ios-add"
+      searchIconColor="red"
+      searchIconSize={30}
+      iconColor={"#00a2dd"}
+      iconSize={30}
+      selectedIconName={"ios-checkmark-circle-outline"}
+      unselectedIconName={"ios-add"}
+      scrollViewHeight={130}
+      selected={["Tom", "Christin"]} // list of options which are selected by default
+    />
       </View>
 
 
     <View style={{
-        height: 40,
+        height: 80,
       justifyContent: 'flex-end',
       alignItems: 'center'
     }}>
     <Text> Pick Study Style</Text>
       </View>
       <Button title="Serious/Quiet"
-          color='skyblue'>
+          color= {this.state.color}
+          onPress={() => {this.ColorPress();this.changed(!this.state.changed);}}>
         Go Back
         </Button>
+
         <Button title="Socially"
-            color= 'skyblue'>
+            color= {this.state.color2}
+            onPress={() => {this.ColorPress2();this.changed2(!this.state.changed2);}}>
           Go Back
           </Button>
 
@@ -121,7 +180,7 @@ const Preference = props => {
             alignItems: 'center',
 
           }}>
-        <Button title="Choose your Buddy" onPress={() => FinPress()}>
+        <Button title="Choose your Buddy" onPress={() => this.FinPress()}>
         Go Back
         </Button>
       </View>
@@ -129,11 +188,11 @@ const Preference = props => {
             height: 100,
             alignItems: 'center'
           }}>
-    <Button title="Go Back" onPress={() => handlePress()}>
+    <Button title="Go Back" onPress={() => this.handlePress()}>
       Go Back
       </Button>
     </View>
     </View>
 );
 }
-export default Preference;
+}
