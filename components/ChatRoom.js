@@ -1,23 +1,36 @@
-import React from 'react';
-import { View, Text, FlatList, TouchableOpacity, Button } from 'react-native';
-import { Link } from 'react-router-native';
+import React from 'react'
+import { GiftedChat } from 'react-native-gifted-chat'
+import { View } from 'react-native';
 
-const ChatRoom = props => {
-  const handlePress = pokemon=>{
-    props.history.push('/Home');
+export default class Chat extends React.Component {
+  state = {
+    messages: []
   };
-
-  return (
-    <View>
-
-      <Button title="Go Back" onPress={() => handlePress()}>
-        Go Back
-      </Button>
-
-      <Text> Chat Rooms</Text>
-
-
-    </View>
-  );
-};
-export default ChatRoom;
+  componentDidMount() {
+    this.setState({
+      messages: [
+        {
+          _id: 1,
+          text: "Testtesttest",
+          createdAt: new Date(),
+          user: {
+            _id: 1,
+            name: "Steve",
+            avatar: "http://placeimg.com/140/140/people"
+          }
+        }
+      ]
+    });
+    
+  }
+  render() {
+    return (
+      <View style={{width: 300, height: 500}}>
+        <GiftedChat 
+          messages={this.state.messages}
+          //onSend = {}
+        />
+      </View>
+    );
+  }
+}
