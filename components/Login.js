@@ -8,7 +8,7 @@ const Login = props => {
     props.history.push('/Home');
   };
   const CreatePress = pokemon=>{
-    props.history.push('/Create');
+    props.history.push('/SignUp');
   };
   return (
     <View style={styles.container}>

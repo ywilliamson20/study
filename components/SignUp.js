@@ -1,56 +1,55 @@
-import React, { Component } from 'react';
-import { View, Text, FlatList, TouchableOpacity,TextInput, Button, StyleSheet, Image, Keyboard } from 'react-native';
+import React from 'react';
+import { View, Text, FlatList, TouchableOpacity, Button } from 'react-native';
+import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-native-simple-radio-button';
 import { Link } from 'react-router-native';
-import mainLogo from './Logo.png';
 
-const listItems = [
-  'University of Florida'
+var radio_props = [
+  {label: 'UF', value: 0 },
+  {label: 'USF', value: 2 },
+  {label: 'UCF', value: 3 },
+  {label: 'FSU', value: 4 },
+  {label: 'UNF', value: 4 }
 ];
 
 const SignUp = props => {
-
-  const handlePress = pokemon => {
-    props.history.push('/');
+  const handlePress = pokemon=>{
+    props.history.push('/Home');
   };
 
-  state = {
-    searchBarFocused: false,
-  }
-
-    return (
-      <View style={{
-        height: 500,
-      }}>
-      <Button title="Log out" onPress={() => handlePress()}>
-        Log out
-      </Button>
-        <View
-          style={{
-            height: 80,
-            width: 300,
-            backgroundColor: '#74C7ED',
-            justifyContent: 'center',
-
-          }}>
-          <TextInput
-             placeholder="Search"
-             style={{ fontSize: 25, justifyContent: 'center', position: 'relative', paddingLeft: 15, backgroundColor: 'white'}}
-           />
-        </View>
-        <FlatList
-          style={{
-            backgroundColor: this.state.searchBarFocused
-              ? 'rgba(0,0,0,0.3)'
-              : 'white',
-          }}
-          data={listItems}
-          renderItem={({ item }) => (
-            <Text style={{ padding: 10, fontSize: 20 }}>{item}</Text>
-          )}
-          keyExtractor={(item, index) => index.toString()}
-        />
-      </View>
-    );
-
+  onRadioBtnClick = (rSelected) => {
+    this.setState({
+        rSelected:rSelected
+    });
 }
+
+  return (
+    <View>
+
+
+
+      <Text> Choose your School</Text>
+      <RadioForm
+          radio_props={radio_props}
+          initial={0}
+          onPress={(value) => {}}
+        />
+        <View style={{
+          height: 100,
+
+        }}>
+      <Button title="Go to Sign In" color = 'navy' onPress={() => handlePress()}>
+          Go to Sign In
+        </Button>
+            </View>
+    <View style={{
+      height: 100,
+
+    }}>
+          <Button title="Go back" onPress={() => handlePress()}>
+            Go back
+      </Button>
+      </View>
+        </View>
+  );
+};
 export default SignUp;
