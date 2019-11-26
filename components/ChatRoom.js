@@ -4,37 +4,29 @@ import { View, Button } from 'react-native';
 
 export default class ChatRoom extends React.Component {
   state = {
-    messages: []
-  };
-
-  homePress () {
-    this.props.history.push('/Home');
-
-
+    messages: [],
   };
   componentDidMount() {
     this.setState({
       messages: [
         {
           _id: 1,
-          text: "Hi ready to study?",
+          text: "Hey, I'm sitting in the back corner of the library! Feel free to stop by and study with me!",
           createdAt: new Date(),
           user: {
-            _id: 1,
+            _id: 2,
             name: "Steve",
-            avatar: "http://placeimg.com/140/140/people"
+            avatar: "http://placeimg.com/140/140/people",
           }
         }
       ]
     });
-
   }
-
-  onSend(messages = []) {
-  this.setState(previousState => ({
-    messages: GiftedChat.append(previousState.messages, messages),
-  }))
-}
+  onSend = (messages = []) => {
+    this.setState(previousState => ({
+      messages: GiftedChat.append(previousState.messages, messages)
+    }))
+  };
 
   render() {
     return (
