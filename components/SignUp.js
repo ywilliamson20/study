@@ -16,6 +16,9 @@ const SignUp = props => {
     props.history.push('/Home');
   };
 
+    const loginPress = pokemon=>{
+      props.history.push('/');
+    };
   onRadioBtnClick = (rSelected) => {
     this.setState({
         rSelected:rSelected
@@ -37,15 +40,15 @@ const SignUp = props => {
           height: 100,
 
         }}>
-      <Button title="Go to Sign In" color = 'navy' onPress={() => handlePress()}>
-          Go to Sign In
+      <Button title="Sign In" color = 'navy' onPress={() => handlePress()}>
+        Sign In
         </Button>
             </View>
     <View style={{
       height: 100,
 
     }}>
-          <Button title="Go back" onPress={() => handlePress()}>
+          <Button title="Go back" onPress={() => loginPress()}>
             Go back
       </Button>
       </View>

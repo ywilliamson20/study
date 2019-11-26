@@ -71,6 +71,7 @@ render(){
           height: 50,
 
         }}>
+        
         <Button title="Search" onPress={() => this.PrePress()}>
           Search
         </Button>

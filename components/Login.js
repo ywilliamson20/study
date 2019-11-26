@@ -22,7 +22,7 @@ const Login = props => {
           height: 50,
 
         }}>
-      <Button title="Log In" onPress={() => handlePress()}>
+      <Button title="Log In" color='navy' onPress={() => handlePress()}>
         Log In
       </Button>
       </View>
@@ -32,7 +32,7 @@ const Login = props => {
         height: 50,
 
       }}>
-      <Button title="New User" onPress={() => CreatePress()}>
+      <Button title="New User" color='navy' onPress={() => CreatePress()}>
         New User
       </Button>
     </View>
