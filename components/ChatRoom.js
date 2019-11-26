@@ -2,7 +2,7 @@ import React from 'react'
 import { GiftedChat } from 'react-native-gifted-chat'
 import { View, Button } from 'react-native';
 
-export default class Chat extends React.Component {
+export default class ChatRoom extends React.Component {
   state = {
     messages: []
   };

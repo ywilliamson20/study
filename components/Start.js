@@ -32,7 +32,7 @@ handlePress (){
 
   };
   homePress () {
-    this.props.history.push('/Home');
+    this.props.history.push('/ChatRoom');
 
 
   };
@@ -64,11 +64,11 @@ handlePress (){
               <Text style={{ alignItems: 'center', fontSize: 60, fontWeight: 'bold',  color: 'white'}}>Study Session Made! </Text>
 
               <Button
-                title="EXIT"
+                title="Go To Chat"
                 onPress={() => {
                   this.homePress()}}
               >
-                EXIT
+                Go To Chat
               </Button>
             </View>
           </View>
